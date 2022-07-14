@@ -3,8 +3,22 @@ const Driver = require('../../db/models/driver')
 module.exports = {
     createDriver(request, response) {
 
+        const body = request.body
+
         const newDriver = new Driver({
-            // TODO create new driver
+            name: body.name,
+            surname: body.surname,
+            age: body.age,
+            team: body.team,
+            country: body.country,
+            podiumsInSeason: body.podiumsInSeason,
+            pointsInSeason: body.pointsInSeason,
+            podiumsInCareer: body.podiumsInCareer,
+            pointsInCareer: body.pointsInCareer,
+            grandsPrixEntered: body.grandsPrixEntered,
+            worldChampionships: body.worldChampionships,
+            dateOfBirth: body.dateOfBirth,
+            placeOfBirth: body.placeOfBirth,
         })
 
         newDriver.save().then(() => {
@@ -17,18 +31,18 @@ module.exports = {
     },
     getDriver(request, response) {
 
-        
+
     },
     getAllDrivers(request, response) {
 
-       
+
     },
     editDriver(request, response) {
 
-        
+
     },
     deleteDriver(request, response) {
 
-        
+
     },
 }
