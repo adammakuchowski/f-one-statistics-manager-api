@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 
-const Driver = mongoose.model('Driver', {
+const { Schema } = mongoose
+
+const driverSchema = new Schema({
     name: String || Number,
     surname: String || Number,
     number: String || Number,
@@ -16,5 +18,7 @@ const Driver = mongoose.model('Driver', {
     dateOfBirth: Date || String,
     placeOfBirth: String || Number,
 })
+
+const Driver = mongoose.model('Driver', driverSchema, 'Drivers')
 
 module.exports = Driver
