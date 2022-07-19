@@ -37,7 +37,7 @@ class DriverActions {
                 return response.json(`Driver with number: ${driverNumber} doens't exist`)
             }
         } catch (err) {
-            return response.json(`Error while get driver by. ${err}`)
+            return response.json(`Error while get driver by ${err}`)
         }
 
         console.log(`Successful get driver with number: ${driverNumber}`)
@@ -53,7 +53,7 @@ class DriverActions {
                 return response.json('The driver base is empty')
             }
         } catch (err) {
-            return response.json(`Error while get dirvers list by. ${err}`)
+            return response.json(`Error while get dirvers list by ${err}`)
         }
 
         response.json(allDrivers)
@@ -93,7 +93,7 @@ class DriverActions {
             }
             await Driver.deleteOne({number: driverNumber})
         } catch (err) {
-            return response.json(`Error while delete driver. ${err}`)
+            return response.json(`Error while delete driver ${err}`)
         }
         
         response.send(`Driver was sucessful deleted`)

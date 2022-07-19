@@ -5,9 +5,9 @@ const { Schema } = mongoose
 
 const teamSchema = new Schema({
     name: String || Number,
-    drivers: Array,
+    driverNumbers: [String],
     country: String || Number,
-    pointsInSeason: Number,
+    pointsInSeason: String || Number,
     worldChampionships: String || Number,
     dateCreation: Date || String
 })
