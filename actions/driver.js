@@ -37,7 +37,7 @@ class DriverActions {
                 return response.json(`Driver with number: ${driverNumber} doens't exist`)
             }
         } catch (err) {
-            return response.json(`Error while get driver by ${err}`)
+            return response.json(`Error while get driver ${err}`)
         }
 
         console.log(`Successful get driver with number: ${driverNumber}`)

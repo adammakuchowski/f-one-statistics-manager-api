@@ -27,19 +27,79 @@ class TeamActions {
     }
 
     async getTeamByName(request, response) {
-        //TODO
+        const teamName = request.params.name
+
+        let team 
+
+        try {
+            team = await Team.findOne({name: teamName})
+
+            if (!team) {
+                return response.json(`Team with name: ${teamName} doens't exist`)
+            }
+        } catch (err) {
+            return response.json(`Error while get team ${err}`)
+        }
+
+        console.log(`Successful get team with name: ${teamName}`)
+        response.json(team)
     }
 
     async getAllTeams(request, response) {
-        //TODO
+        let allTeams
+
+        try {
+            allTeams = await Team.find({})
+            if (!allTeams) {
+                return response.json('The teams base is empty')
+            }
+        } catch (err) {
+            return response.json(`Error while get teams list by ${err}`)
+        }
+
+        response.json(allTeams)
     }
 
     async updateTeam(request, response) {
-        //TODO
+        const teamName = request.params.name
+
+        let body = request.body
+        //TODO block copy of drivers exists in other teams
+        let newDrivers = body.driverNumbers
+
+        const isTeamExists = await Team.findOne({name: body.name})
+
+        if (isTeamExists) {
+            return response.json(`Error: Team with name ${body.name} is already exists`)
+        }
+
+        let teamToUpdate = await Team.findOne({name: teamName})
+
+        if (!teamToUpdate) {
+            return response.json(`Team with name ${teamName} doesn't exists`)
+        }
+
+        teamToUpdate = await teamService.udpapteTeam(teamToUpdate, body)
+
+        await teamToUpdate.save()
+
+        response.send(`Team was sucessful update`)
     }
 
     async deleteTeam(request, response) {
-        //TODO
+        const teamName = request.params.name
+
+        try {
+            const teamToDelete = await Team.findOne({name: teamName})
+            if(!teamToDelete) {
+                return response.json(`Team with name ${teamName} doesn't exists`)
+            }
+            await Team.deleteOne({name: teamName})
+        } catch (err) {
+            return response.json(`Error while delete team ${err}`)
+        }
+        
+        response.send(`Team was sucessful deleted`)
     }
 }
 
