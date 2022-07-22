@@ -30,7 +30,7 @@ router.post('/team/create', teamActions.createTeam)
 router.get('/team/:name', teamActions.getTeamByName)
 
 // get all teams 
-router.get('/team', teamActions.getAllTeams)
+router.get('/teams', teamActions.getAllTeams)
 
 // update one team
 router.put('/team/update/:name', teamActions.updateTeam)
