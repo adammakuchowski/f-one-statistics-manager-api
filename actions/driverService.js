@@ -15,12 +15,8 @@ class driverService {
             country: body.country || '-',
             podiumsInSeason: body.podiumsInSeason || '-',
             pointsInSeason: body.pointsInSeason || 0,
-            podiumsInCareer: body.podiumsInCareer || '-',
-            pointsInCareer: body.pointsInCareer || '-',
-            grandsPrixEntered: body.grandsPrixEntered || '-',
             worldChampionships: body.worldChampionships || '-',
             dateOfBirth: body.dateOfBirth || '-',
-            placeOfBirth: body.placeOfBirth || '-',
         })
 
         return newDriver
@@ -35,12 +31,8 @@ class driverService {
             driverToUpdate.country = body.country || driverToUpdate.country,
             driverToUpdate.podiumsInSeason = body.podiumsInSeason || driverToUpdate.podiumsInSeason,
             driverToUpdate.pointsInSeason = body.pointsInSeason || driverToUpdate.pointsInSeason,
-            driverToUpdate.podiumsInCareer = body.podiumsInCareer || driverToUpdate.podiumsInCareer,
-            driverToUpdate.pointsInCareer = body.pointsInCareer || driverToUpdate.pointsInCareer,
-            driverToUpdate.grandsPrixEntered = body.grandsPrixEntered || driverToUpdate.grandsPrixEntered,
             driverToUpdate.worldChampionships = body.worldChampionships || driverToUpdate.worldChampionships,
-            driverToUpdate.dateOfBirth = body.dateOfBirth || driverToUpdate.dateOfBirth,
-            driverToUpdate.placeOfBirth = body.placeOfBirth || driverToUpdate.placeOfBirth
+            driverToUpdate.dateOfBirth = body.dateOfBirth || driverToUpdate.dateOfBirth
 
         return driverToUpdate
     }

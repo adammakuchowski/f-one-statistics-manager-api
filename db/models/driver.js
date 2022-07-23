@@ -10,13 +10,9 @@ const driverSchema = new Schema({
     team: String || Number,
     country: String || Number,
     podiumsInSeason: String || Number,
-    pointsInSeason: Number,
-    podiumsInCareer: String || Number,
-    pointsInCareer: String || Number,
-    grandsPrixEntered: String || Number,
+    pointsInSeason: String || Number,
     worldChampionships: String || Number,
     dateOfBirth: Date || String,
-    placeOfBirth: String || Number,
 })
 
 const Driver = mongoose.model('Driver', driverSchema, 'Drivers')
